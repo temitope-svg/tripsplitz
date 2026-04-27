@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "942744761345",
+    "project_id": "tripsplitz-test",
+    "storage_bucket": "tripsplitz-test.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942744761345:android:ae1e30b98a2e7194453c00",
+        "android_client_info": {
+          "package_name": "com.flexium.tripslitz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXDIOzHtYBkLJUlohafPJEPCqq7K6qhqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

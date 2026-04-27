@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1210"
+   LastUpgradeVersion = "1620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "tripsplitz.app"
-               BlueprintName = "tripsplitz"
-               ReferencedContainer = "container:tripsplitz.xcodeproj">
+               BuildableName = "Tripsplitz.app"
+               BlueprintName = "Tripsplitz"
+               ReferencedContainer = "container:Tripsplitz.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "tripsplitzTests.xctest"
-               BlueprintName = "tripsplitzTests"
-               ReferencedContainer = "container:tripsplitz.xcodeproj">
+               BuildableName = "TripsplitzTests.xctest"
+               BlueprintName = "TripsplitzTests"
+               ReferencedContainer = "container:Tripsplitz.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "tripsplitz.app"
-            BlueprintName = "tripsplitz"
-            ReferencedContainer = "container:tripsplitz.xcodeproj">
+            BuildableName = "Tripsplitz.app"
+            BlueprintName = "Tripsplitz"
+            ReferencedContainer = "container:Tripsplitz.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "tripsplitz.app"
-            BlueprintName = "tripsplitz"
-            ReferencedContainer = "container:tripsplitz.xcodeproj">
+            BuildableName = "Tripsplitz.app"
+            BlueprintName = "Tripsplitz"
+            ReferencedContainer = "container:Tripsplitz.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

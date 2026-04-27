@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCuqgQl4EPTg0100aIH9zUTF2R89HOhcDI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>942744761345</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.flexium.tripslitz</string>
+	<key>PROJECT_ID</key>
+	<string>tripsplitz-test</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tripsplitz-test.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:942744761345:ios:53a205ffea2f79a1453c00</string>
+</dict>
+</plist>
