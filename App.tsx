@@ -46,7 +46,7 @@ import Statement from './pages/Statement';
 import SummaryActivity from './pages/SummaryActivity';
 // import { initializeFirebase } from './config/firebase';
 import { requestUserPermission, notificationListener } from './utils/notification';
-import SplashScreen from 'react-native-splash-screen';
+import BootSplash from 'react-native-bootsplash';
 import PayTrip from './pages/PayTrip';
 import { storage } from './utils/storage';
 import { biometrics } from './utils/biometrics';
@@ -175,7 +175,7 @@ function App(): React.JSX.Element | null {
         await clearLocalSession();
       } finally {
         setIsLoading(false);
-        SplashScreen.hide();
+        await BootSplash.hide({ fade: true });
       }
     };
 

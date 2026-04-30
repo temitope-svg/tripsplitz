@@ -3,7 +3,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLinkingManager.h>
 #import <UserNotifications/UserNotifications.h>
-#import "RNSplashScreen.h"
+#import "RNBootSplash.h"
 
 @implementation AppDelegate
 
@@ -32,8 +32,13 @@
 
   bool didFinish = [super application:application didFinishLaunchingWithOptions:launchOptions];
   
-  [RNSplashScreen show];
   return didFinish;
+}
+
+- (void)customizeRootView:(RCTRootView *)rootView
+{
+  [super customizeRootView:rootView];
+  [RNBootSplash initWithStoryboard:@"LaunchScreen" rootView:rootView];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
