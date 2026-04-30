@@ -3,58 +3,69 @@ import { CustomInputProps } from './formik-input';
 import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useColorScheme } from 'nativewind';
-import DateRangePicker from "rn-select-date-range";
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
+type PickerStep = 'start' | 'end' | null;
+
+const formatDate = (date: Date) => date.toISOString().split('T')[0];
 
 export default function FormikDateRangePicker({ ...props }: CustomInputProps) {
-    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [pickerStep, setPickerStep] = useState<PickerStep>(null);
+    const [pendingStartDate, setPendingStartDate] = useState<Date | null>(null);
     const { colorScheme } = useColorScheme();
     const isDarkMode = colorScheme === 'dark';
 
-    const selectedDateContainerStyle = {
-        height: 35,
-        width: '100%' as const,
-        alignItems: 'center' as const,
-        justifyContent: 'center' as const,
-        borderRadius: 8,
-        backgroundColor: isDarkMode ? '#16A34A' : '#047857',
+    const closePicker = () => {
+        setPendingStartDate(null);
+        setPickerStep(null);
     };
 
-    const selectedDateStyle = {
-        fontWeight: '700' as const,
-        color: '#FFFFFF',
-    };
-
-    const handleSelections = (date: any, form: FormikProps<any>) => {
-        if (date) {
-            form.setFieldValue('startDate', date.firstDate)
-            form.setFieldValue('endDate', date.secondDate)
-            form.setFieldValue('dates', `${date.firstDate} - ${date.secondDate}`)
+    const handleSelections = (date: Date, form: FormikProps<any>) => {
+        if (pickerStep === 'start') {
+            setPendingStartDate(date);
+            setPickerStep('end');
+            return;
         }
-        setDatePickerVisibility(false);
-    }
+
+        if (date && pendingStartDate) {
+            const start = pendingStartDate <= date ? pendingStartDate : date;
+            const end = pendingStartDate <= date ? date : pendingStartDate;
+
+            form.setFieldValue('startDate', formatDate(start));
+            form.setFieldValue('endDate', formatDate(end));
+            form.setFieldValue(props.name, `${formatDate(start)} - ${formatDate(end)}`);
+        }
+
+        closePicker();
+    };
 
     return (
         <Field name={props.name}>
             {({ field, form }: FieldProps) => (
-                <View className='  w-full'>
-                    <TouchableOpacity testID={`input-${props.name}`} className='p-2' onPress={() => !props.disabled && setDatePickerVisibility((prev) => !prev)}>
+                <View className='w-full'>
+                    <TouchableOpacity
+                        testID={`input-${props.name}`}
+                        className='p-2'
+                        onPress={() => {
+                            if (!props.disabled) {
+                                setPendingStartDate(null);
+                                setPickerStep('start');
+                            }
+                        }}
+                    >
                         <Text className='text-black dark:text-white'>
-                            {field.value ? field.value : props.placeholder}
+                            {field.value || props.placeholder}
                         </Text>
                     </TouchableOpacity>
-                    <View className={isDatePickerVisible ? 'block' : 'hidden'}>
-                        <View className='rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1F2937] p-2'>
-                            <DateRangePicker
-                                onSelectDateRange={(range) => handleSelections(range, form)}
-                                blockSingleDateSelection={true}
-                                responseFormat="YYYY-MM-DD"
-                                onConfirm={() => setDatePickerVisibility(false)}
-                                selectedDateContainerStyle={selectedDateContainerStyle}
-                                selectedDateStyle={selectedDateStyle}
-                            />
-                        </View>
-                    </View>
+
+                    <DateTimePickerModal
+                        isVisible={pickerStep !== null}
+                        mode='date'
+                        onConfirm={(date) => handleSelections(date, form)}
+                        onCancel={closePicker}
+                        isDarkModeEnabled={isDarkMode}
+                        disabled={props.disabled}
+                    />
                 </View>
             )}
         </Field>
